@@ -1,0 +1,41 @@
+<h1 id="tableLabel">User Detail</h1>
+
+<p>This component demonstrates User data from the server.</p>
+
+<p *ngIf="!userDetails"><em>Loading...</em></p>
+<div class="btn-style w-20 pull-right text-right">
+  <button class="theme-color mr-20" (click)="addUser()">Add User</button>
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel"
+       *ngIf="userDetails">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let userDetail of userDetails">
+      <td>{{ userDetail.firstName }}</td>
+      <td>{{ userDetail.lastName }}</td>
+      <td>{{ userDetail.gender }}</td>
+      <td>{{ userDetail.email }}</td>
+     
+      <td>
+        <a (click)="editUser(userDetail.id)" class="app-icon edit-icon-color">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a (click)="deleteUser(userDetail.id)" class="app-icon delete-icon-color">
+          Delete
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

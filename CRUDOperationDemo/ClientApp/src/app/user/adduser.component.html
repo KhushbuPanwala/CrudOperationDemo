@@ -1,0 +1,34 @@
+<h1 id="tableLabel">Add User Detail</h1>
+
+<p>This component demonstrates Adde User data from the server.</p>
+<form name="form" (ngSubmit)="f.form.valid && saveUser()" #f="ngForm" novalidate>
+  <div class="example-full-width">
+    <label>First Name</label>
+    <input type="text" placeholder="First Name" name="firstName" [(ngModel)]="userDetail.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+  </div>
+
+  <div class="example-full-width">
+    <label>Last Name</label>
+    <input type="text" placeholder="Last Name" name="lastName" [(ngModel)]="userDetail.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
+  </div>
+
+  <div class="example-full-width">
+    <label>Email</label>
+    <input type="text" placeholder="Email" name="email" [(ngModel)]="userDetail.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+  </div>
+
+  <label>Gender:  </label>
+  <input type="text" placeholder="gender" name="gender" [(ngModel)]="userDetail.gender" disabled />
+
+  <div class="example-full-width">
+    <label>Passowrd</label>
+    <input type="password" placeholder="Password" name="password" [(ngModel)]="userDetail.password"
+           #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+  </div>
+
+  <div class="form-group btn-group">
+    <button class="theme-color">Save</button>
+    <button class="font-color mr-20" (click)="cancel()">Cancel</button>
+  </div>
+</form>
+
